@@ -19,38 +19,39 @@ const Sidebar = () => {
       >
         Compose
       </Button>
-      <SidebarOptions
-        Icon={InboxIcon}
-        title="Inbox"
-        number={54}
-        selected={true}
-      ></SidebarOptions>
-      <SidebarOptions
-        Icon={StarOutlineIcon}
-        title="Starred"
-        number={10}
-      ></SidebarOptions>
-      <SidebarOptions
-        Icon={AccessTimeIcon}
-        title="Snoozed"
-        number={10}
-      ></SidebarOptions>
-      <SidebarOptions
-        Icon={SendIcon}
-        title="Snoozed"
-        number={10}
-      ></SidebarOptions>
-      <SidebarOptions
-        Icon={InsertDriveFileOutlinedIcon}
-        title="Drafts"
-        number={10}
-      ></SidebarOptions>
-      <SidebarOptions
-        Icon={KeyboardArrowDownOutlinedIcon}
-        title="More"
-        number={10}
-      ></SidebarOptions>
-
+      <div className="sidebar-options">
+        <SidebarOptions
+          Icon={InboxIcon}
+          title="Inbox"
+          number={54}
+          selected={true}
+        ></SidebarOptions>
+        <SidebarOptions
+          Icon={StarOutlineIcon}
+          title="Starred"
+          number={10}
+        ></SidebarOptions>
+        <SidebarOptions
+          Icon={AccessTimeIcon}
+          title="Snoozed"
+          number={10}
+        ></SidebarOptions>
+        <SidebarOptions
+          Icon={SendIcon}
+          title="Snoozed"
+          number={10}
+        ></SidebarOptions>
+        <SidebarOptions
+          Icon={InsertDriveFileOutlinedIcon}
+          title="Drafts"
+          number={10}
+        ></SidebarOptions>
+        <SidebarOptions
+          Icon={KeyboardArrowDownOutlinedIcon}
+          title="More"
+          number={10}
+        ></SidebarOptions>
+      </div>
       <div className="sidebar-label">
         <h3>Label</h3>
         <Button>
