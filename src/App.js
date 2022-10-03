@@ -1,6 +1,6 @@
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 
-import React from 'react';
+import React, { Fragment } from 'react';
 
 import './App.css';
 import Header from './Header';
@@ -12,16 +12,18 @@ import Mail from './Mail';
 
 function App() {
   return (
-    <div className="app-body">
+    <Fragment>
       <Header />
-      <Sidebar />
-      <BrowserRouter>
-        <Routes>
-          <Route path="/mail" element={<Mail></Mail>}></Route>
-          <Route path="/" element={<EmailList />}></Route>
-        </Routes>
-      </BrowserRouter>
-    </div>
+      <div className="app-body">
+        <Sidebar />
+        <BrowserRouter>
+          <Routes>
+            <Route path="/mail" element={<Mail></Mail>}></Route>
+            <Route path="/" element={<EmailList />}></Route>
+          </Routes>
+        </BrowserRouter>
+      </div>
+    </Fragment>
   );
 }
 

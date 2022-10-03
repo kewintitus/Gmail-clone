@@ -1,0 +1,15 @@
+.emailList {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.emailList-settingsLeft {
+  display: flex;
+}
+
+.emailList-settings {
+  display: flex;
+  width: auto;
+  justify-content: space-between;
+}
