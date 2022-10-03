@@ -1,0 +1,36 @@
+.sidebar-compose {
+  display: inline-block;
+  margin-top: 20px !important;
+  margin-left: 10px !important;
+  padding: 20px 30px !important;
+  background-color: #c2e7ff !important;
+  color: #3c4043 !important;
+  border-radius: 25px !important;
+  text-transform: none !important;
+  margin-bottom: 20px !important;
+}
+
+.sidebar-compose:hover {
+  box-shadow: 0px 3px 10px -2px rgba(0, 0, 0, 0.381) !important;
+}
+
+.sidebar-label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 200px;
+}
+.sidebar-label h3 {
+  font-weight: 400;
+  margin-left: 10px;
+}
+
+.sidebar-label Button {
+  width: 10px !important;
+  height: 64px !important;
+  border-radius: 75px;
+  padding: 0 !important;
+}
+.sidebar-label Button .MuiButtonBase-root {
+  width: 80px !important;
+}
