@@ -13,7 +13,7 @@ const EmailRow = ({ id, sender, subject, description, time }) => {
   };
 
   return (
-    <div className="emailRow" onClick={openMailHandler}>
+    <div className="emailRow">
       <div className="emailRow-options">
         <IconButton>
           <CheckBox />
@@ -22,7 +22,7 @@ const EmailRow = ({ id, sender, subject, description, time }) => {
           <StarBorderIcon />
         </IconButton>
       </div>
-      <div className="emailRow-data">
+      <div className="emailRow-data" onClick={openMailHandler}>
         <div className="emailRow-senderName">{sender}</div>
         <div className="emailRow-description">
           <span className="emailRow-subject">{subject + ' - '}</span>

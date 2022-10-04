@@ -1,0 +1,7 @@
+.mail {
+  flex-grow: 1;
+}
+.mail-tools {
+  display: flex;
+  justify-content: space-between;
+}
