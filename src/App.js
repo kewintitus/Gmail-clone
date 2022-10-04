@@ -7,6 +7,7 @@ import Header from './Header';
 import Sidebar from './Sidebar';
 import EmailList from './EmailList';
 import Mail from './Mail';
+import SendMail from './SendMail';
 
 // const router = createBrowserRouter(createRoutesFromElements);
 
@@ -22,6 +23,7 @@ function App() {
             <Route path="/" element={<EmailList />}></Route>
           </Routes>
         </BrowserRouter>
+        <SendMail />
       </div>
     </Fragment>
   );
