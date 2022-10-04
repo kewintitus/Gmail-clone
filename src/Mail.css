@@ -30,6 +30,6 @@
 }
 .mail-bodyUser--actions {
   display: flex;
-  gap: 15px;
+  gap: 5px;
   align-items: center;
 }
