@@ -8,6 +8,7 @@ import ChevronLeftOutlinedIcon from '@mui/icons-material/ChevronLeftOutlined';
 import ChevronRightOutlinedIcon from '@mui/icons-material/ChevronRightOutlined';
 import { IconButton } from '@mui/material';
 import { CheckBox } from '@mui/icons-material';
+import EmailRow from './EmailRow';
 
 const EmailList = () => {
   return (
@@ -37,6 +38,20 @@ const EmailList = () => {
             <ChevronRightOutlinedIcon />
           </IconButton>
         </div>
+      </div>
+      <div className="emailList-sections">
+        <EmailRow
+          sender="Google"
+          subject="Account Security"
+          description="Please use this otp-0912 valid for the next 30 secs   oinosnvshvbsbhbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+          time={`${new Date().getDay()}/${new Date().getMonth()}`}
+        />
+        <EmailRow
+          sender="Google"
+          subject="Account Security"
+          description="Please use this otp-0912 valid for the next 30 secs   oinosnvshvbsbhbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+          time={`${new Date().getDay()}/${new Date().getMonth()}`}
+        />
       </div>
     </div>
   );

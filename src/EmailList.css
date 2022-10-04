@@ -8,6 +8,10 @@
   display: flex;
 }
 
+.emailList-settingsRight {
+  display: flex;
+}
+
 .emailList-settings {
   display: flex;
   width: auto;
