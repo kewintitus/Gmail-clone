@@ -1,7 +1,35 @@
 .mail {
   flex-grow: 1;
+  background-color: #fff;
+  margin: 10px;
+  border-radius: 15px;
 }
 .mail-tools {
   display: flex;
   justify-content: space-between;
+  padding: 5px;
+}
+
+.mail-toolsLeft {
+  display: flex;
+  gap: 10px;
+}
+
+.userImg img {
+  width: 50px;
+}
+
+.userDetailsInfo {
+  display: flex;
+}
+
+.mail-bodyUser {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.mail-bodyUser--actions {
+  display: flex;
+  gap: 15px;
+  align-items: center;
 }
