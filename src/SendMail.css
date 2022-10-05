@@ -17,6 +17,8 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-radius: 10px 10px 0px 0px;
+
   background-color: #d3e3fd;
 }
 
@@ -58,4 +60,8 @@
   color: red;
   text-align: right;
   padding: 2px;
+}
+
+.sendMailActions {
+  background-color: white;
 }

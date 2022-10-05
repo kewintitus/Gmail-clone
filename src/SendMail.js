@@ -7,6 +7,7 @@ import { Button, IconButton } from '@mui/material';
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 import { closeSendMessage } from './features/mailSlice';
+import { db } from './firebase';
 const SendMail = () => {
   const {
     register,
@@ -17,6 +18,7 @@ const SendMail = () => {
 
   const onSubmit = (formData) => {
     console.log(formData);
+    db.collection('emails').add();
   };
   const dispatch = useDispatch();
   const closeSendMessageHandler = () => {
@@ -41,7 +43,7 @@ const SendMail = () => {
 
         <input
           placeholder="Subject"
-          type="text"
+          type="email"
           {...register('subject', { required: true })}
         />
         {errors.subject && <p className="sendMailError">Invalid</p>}
@@ -51,7 +53,7 @@ const SendMail = () => {
           {...register('message')}
         />
 
-        <div>
+        <div className="sendMailActions">
           <Button className="sendMail-send" type="submit">
             Send
           </Button>
