@@ -61,7 +61,7 @@ export const { openSendMessage, closeSendMessage, selectMail } =
 // in the slice file. For example: `useSelector((state: RootState) => state.counter.value)`
 
 export const selectOpenMail = (state) => {
-  return state.mail.selectMail;
+  return state.mail.selectedMail;
 };
 export const selectSendMessageIsOpen = (state) => state.mail.sendMessageIsOpen;
 

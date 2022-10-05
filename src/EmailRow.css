@@ -43,8 +43,10 @@
 }
 
 .emailRow-time {
-  flex-basis: 20%;
+  flex-basis: 30%;
   justify-self: right;
   text-align: center;
+  white-space: nowrap;
   flex: 0.2;
+  font-size: small;
 }

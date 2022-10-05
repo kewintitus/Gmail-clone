@@ -4,11 +4,15 @@ import { CheckBox } from '@mui/icons-material';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
 import { IconButton } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { selectMail } from './features/mailSlice';
 
-const EmailRow = ({ id, sender, subject, description, time }) => {
+const EmailRow = ({ id, emailId, sender, subject, description, time }) => {
   const history = useNavigate();
+  const dispatch = useDispatch();
 
   const openMailHandler = () => {
+    dispatch(selectMail({ id, emailId, sender, subject, description, time }));
     history('/mail');
   };
 

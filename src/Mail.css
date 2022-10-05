@@ -33,3 +33,7 @@
   gap: 5px;
   align-items: center;
 }
+
+.mail-bodyContent {
+  padding: 10px 50px;
+}

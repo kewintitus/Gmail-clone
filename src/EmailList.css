@@ -23,6 +23,10 @@
 }
 
 /* Mail body subject */
+.emailList-sections {
+  overflow: scroll;
+  padding-right: 5px;
+}
 
 .mailSubject {
   display: flex;

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import './EmailList.css';
 import CheckBoxOutlineBlankOutlinedIcon from '@mui/icons-material/CheckBoxOutlineBlankOutlined';
 import ArrowDropDownOutlinedIcon from '@mui/icons-material/ArrowDropDownOutlined';
@@ -36,7 +36,6 @@ const EmailList = () => {
       console.log(arrdata);
       setEmails(arrdata);
     };
-
     getAllMails();
   }, []);
 
@@ -74,6 +73,8 @@ const EmailList = () => {
           return (
             <EmailRow
               key={id}
+              id={id}
+              emailId={data.to}
               sender={userName}
               subject={data.subject}
               description={data.message}
@@ -81,6 +82,132 @@ const EmailList = () => {
             />
           );
         })}
+        <EmailRow
+          key="{id}"
+          id="{id}"
+          emailId="{data.to}"
+          sender="{userName}"
+          subject="{data.subject}"
+          description="{data.message}"
+          time="{new Date(data.timestamp.seconds * 1000).toUTCString()}"
+        />
+        <EmailRow
+          key="{id}"
+          id="{id}"
+          emailId="{data.to}"
+          sender="{userName}"
+          subject="{data.subject}"
+          description="{data.message}"
+          time="{new Date(data.timestamp.seconds * 1000).toUTCString()}"
+        />
+        <EmailRow
+          key="{id}"
+          id="{id}"
+          emailId="{data.to}"
+          sender="{userName}"
+          subject="{data.subject}"
+          description="{data.message}"
+          time="{new Date(data.timestamp.seconds * 1000).toUTCString()}"
+        />
+        <EmailRow
+          key="{id}"
+          id="{id}"
+          emailId="{data.to}"
+          sender="{userName}"
+          subject="{data.subject}"
+          description="{data.message}"
+          time="{new Date(data.timestamp.seconds * 1000).toUTCString()}"
+        />
+        <EmailRow
+          key="{id}"
+          id="{id}"
+          emailId="{data.to}"
+          sender="{userName}"
+          subject="{data.subject}"
+          description="{data.message}"
+          time="{new Date(data.timestamp.seconds * 1000).toUTCString()}"
+        />
+        <EmailRow
+          key="{id}"
+          id="{id}"
+          emailId="{data.to}"
+          sender="{userName}"
+          subject="{data.subject}"
+          description="{data.message}"
+          time="{new Date(data.timestamp.seconds * 1000).toUTCString()}"
+        />
+        <EmailRow
+          key="{id}"
+          id="{id}"
+          emailId="{data.to}"
+          sender="{userName}"
+          subject="{data.subject}"
+          description="{data.message}"
+          time="{new Date(data.timestamp.seconds * 1000).toUTCString()}"
+        />
+        <EmailRow
+          key="{id}"
+          id="{id}"
+          emailId="{data.to}"
+          sender="{userName}"
+          subject="{data.subject}"
+          description="{data.message}"
+          time="{new Date(data.timestamp.seconds * 1000).toUTCString()}"
+        />
+        <EmailRow
+          key="{id}"
+          id="{id}"
+          emailId="{data.to}"
+          sender="{userName}"
+          subject="{data.subject}"
+          description="{data.message}"
+          time="{new Date(data.timestamp.seconds * 1000).toUTCString()}"
+        />
+        <EmailRow
+          key="{id}"
+          id="{id}"
+          emailId="{data.to}"
+          sender="{userName}"
+          subject="{data.subject}"
+          description="{data.message}"
+          time="{new Date(data.timestamp.seconds * 1000).toUTCString()}"
+        />
+        <EmailRow
+          key="{id}"
+          id="{id}"
+          emailId="{data.to}"
+          sender="{userName}"
+          subject="{data.subject}"
+          description="{data.message}"
+          time="{new Date(data.timestamp.seconds * 1000).toUTCString()}"
+        />
+        <EmailRow
+          key="{id}"
+          id="{id}"
+          emailId="{data.to}"
+          sender="{userName}"
+          subject="{data.subject}"
+          description="{data.message}"
+          time="{new Date(data.timestamp.seconds * 1000).toUTCString()}"
+        />
+        <EmailRow
+          key="{id}"
+          id="{id}"
+          emailId="{data.to}"
+          sender="{userName}"
+          subject="{data.subject}"
+          description="{data.message}"
+          time="{new Date(data.timestamp.seconds * 1000).toUTCString()}"
+        />
+        <EmailRow
+          key="{id}"
+          id="{id}"
+          emailId="{data.to}"
+          sender="{userName}"
+          subject="{data.subject}"
+          description="{data.message}"
+          time="{new Date(data.timestamp.seconds * 1000).toUTCString()}"
+        />
       </div>
     </div>
   );

@@ -22,8 +22,12 @@ import UserImg from '../src/images/userIcon.png';
 import { IconButton } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { fontSize } from '@mui/system';
+import { useSelector } from 'react-redux';
+import { selectOpenMail } from './features/mailSlice';
 const Mail = () => {
   const navigate = useNavigate();
+  const selectedMail = useSelector(selectOpenMail);
+  console.log(selectedMail);
 
   const backButtonHandler = () => {
     navigate('/');
@@ -81,7 +85,7 @@ const Mail = () => {
       <div className="mail-body">
         <div className="mailSubject">
           <div className="mail-bodySubject">
-            <h2>Subject</h2>
+            <h2>{selectedMail?.subject}</h2>
 
             <div className="mail-bodySubject--label">
               <div>Inbox</div>
@@ -105,8 +109,8 @@ const Mail = () => {
               </div>
               <div>
                 <div className="userDetailsInfo">
-                  <h4>UserName</h4>
-                  <p>{'<emailId>'}</p>
+                  <h4>{selectedMail?.sender}</h4>
+                  <p>{`<${selectedMail?.emailId}>`}</p>
                 </div>
                 <div className="userDetailsActions">
                   <p>To me</p>
@@ -116,7 +120,7 @@ const Mail = () => {
             </div>
           </div>
           <div className="mail-bodyUser--actions">
-            <span>today</span>
+            <span>{selectedMail.time}</span>
             <IconButton>
               <StarBorderOutlinedIcon />
             </IconButton>
@@ -128,7 +132,7 @@ const Mail = () => {
             </IconButton>
           </div>
         </div>
-        <div className="mail-bodyContent"></div>
+        <div className="mail-bodyContent">{selectedMail.description}</div>
       </div>
     </div>
   );
