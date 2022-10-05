@@ -9,13 +9,21 @@ import InsertDriveFileOutlinedIcon from '@mui/icons-material/InsertDriveFileOutl
 import KeyboardArrowDownOutlinedIcon from '@mui/icons-material/KeyboardArrowDownOutlined';
 import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
 import SendIcon from '@mui/icons-material/Send';
+import { useDispatch } from 'react-redux';
+import { openSendMessage } from './features/mailSlice';
 
 const Sidebar = () => {
+  const dispatch = useDispatch();
+
   return (
     <div className="sidebar">
       <Button
         startIcon={<CreateIcon fontSize="large" />}
         className="sidebar-compose"
+        onClick={() => {
+          dispatch(openSendMessage());
+          console.log('action');
+        }}
       >
         Compose
       </Button>
