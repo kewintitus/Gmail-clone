@@ -22,9 +22,12 @@ export const incrementAsync = createAsyncThunk(
 
 export const mailSlice = createSlice({
   name: 'mail',
-  initialState: { sendMessageIsOpen: false },
+  initialState: { sendMessageIsOpen: false, selectedMail: null },
   // The `reducers` field lets us define reducers and generate associated actions
   reducers: {
+    selectMail: (state, action) => {
+      state.selectedMail = action.payload;
+    },
     openSendMessage: (state) => {
       state.sendMessageIsOpen = true;
     },
@@ -50,11 +53,16 @@ export const mailSlice = createSlice({
   },
 });
 
-export const { openSendMessage, closeSendMessage } = mailSlice.actions;
+export const { openSendMessage, closeSendMessage, selectMail } =
+  mailSlice.actions;
 
 // The function below is called a selector and allows us to select a value from
 // the state. Selectors can also be defined inline where they're used instead of
 // in the slice file. For example: `useSelector((state: RootState) => state.counter.value)`
+
+export const selectOpenMail = (state) => {
+  return state.mail.selectMail;
+};
 export const selectSendMessageIsOpen = (state) => state.mail.sendMessageIsOpen;
 
 // We can also write thunks by hand, which may contain both sync and async logic.

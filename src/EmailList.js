@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './EmailList.css';
 import CheckBoxOutlineBlankOutlinedIcon from '@mui/icons-material/CheckBoxOutlineBlankOutlined';
 import ArrowDropDownOutlinedIcon from '@mui/icons-material/ArrowDropDownOutlined';
@@ -9,8 +9,37 @@ import ChevronRightOutlinedIcon from '@mui/icons-material/ChevronRightOutlined';
 import { IconButton } from '@mui/material';
 import { CheckBox } from '@mui/icons-material';
 import EmailRow from './EmailRow';
+import { db } from './firebase';
+import { doc, getDoc } from 'firebase/firestore';
+import { collection, getDocs } from 'firebase/firestore';
+import { query, orderBy, limit } from 'firebase/firestore';
+
+// const getData = async (docRef) => {
+//   const docSnap = await getDoc(docRef);
+//   return docSnap;
+// };
 
 const EmailList = () => {
+  const [emails, setEmails] = useState([]);
+
+  useEffect(() => {
+    const getAllMails = async () => {
+      const arrdata = [];
+      const q = query(collection(db, 'emails'), orderBy('timestamp', 'desc'));
+      const querySnapShot = await getDocs(q);
+      console.log(querySnapShot);
+      querySnapShot.forEach((doc) => {
+        // doc.data() is never undefined for query doc snapshots
+        console.log(doc.data());
+        arrdata.push({ data: doc.data(), id: doc.id });
+      });
+      console.log(arrdata);
+      setEmails(arrdata);
+    };
+
+    getAllMails();
+  }, []);
+
   return (
     <div className="emailList">
       <div className="emailList-settings">
@@ -40,18 +69,18 @@ const EmailList = () => {
         </div>
       </div>
       <div className="emailList-sections">
-        <EmailRow
-          sender="Google"
-          subject="Account Security"
-          description="Please use this otp-0912 valid for the next 30 secs   oinosnvshvbsbhbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
-          time={`${new Date().getDay()}/${new Date().getMonth()}`}
-        />
-        <EmailRow
-          sender="Google"
-          subject="Account Security"
-          description="Please use this otp-0912 valid for the next 30 secs   oinosnvshvbsbhbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
-          time={`${new Date().getDay()}/${new Date().getMonth()}`}
-        />
+        {emails.map(({ data, id }) => {
+          const userName = data.to.substr(0, data.to.indexOf('@'));
+          return (
+            <EmailRow
+              key={id}
+              sender={userName}
+              subject={data.subject}
+              description={data.message}
+              time={new Date(data.timestamp.seconds * 1000).toUTCString()}
+            />
+          );
+        })}
       </div>
     </div>
   );
