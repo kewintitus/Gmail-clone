@@ -1,0 +1,19 @@
+.login {
+  display: grid;
+  place-items: center;
+  height: 100vh;
+}
+.loginContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.loginContainer img {
+  object-fit: contain;
+  width: 250px;
+}
+
+.loginContainer Button {
+  background-color: rgb(34, 34, 209) !important;
+  color: white;
+}

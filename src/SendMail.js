@@ -78,7 +78,7 @@ const SendMail = () => {
           {...register('subject', { required: true })}
         />
         {errors.subject && <p className="sendMailError">Invalid</p>}
-        <input
+        <textarea
           className="sendMail-message"
           type="text"
           {...register('message')}

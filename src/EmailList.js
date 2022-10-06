@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
 import './EmailList.css';
 import CheckBoxOutlineBlankOutlinedIcon from '@mui/icons-material/CheckBoxOutlineBlankOutlined';
 import ArrowDropDownOutlinedIcon from '@mui/icons-material/ArrowDropDownOutlined';
@@ -22,21 +22,24 @@ import { query, orderBy, limit } from 'firebase/firestore';
 const EmailList = () => {
   const [emails, setEmails] = useState([]);
 
+  const getAllMails = async () => {
+    const arrdata = [];
+    const q = query(collection(db, 'emails'), orderBy('timestamp', 'desc'));
+    const querySnapShot = await getDocs(q);
+    console.log(querySnapShot);
+    querySnapShot.forEach((doc) => {
+      // doc.data() is never undefined for query doc snapshots
+      console.log(doc.data());
+      arrdata.push({ data: doc.data(), id: doc.id });
+    });
+    console.log(arrdata);
+    return arrdata;
+  };
+
   useEffect(() => {
-    const getAllMails = async () => {
-      const arrdata = [];
-      const q = query(collection(db, 'emails'), orderBy('timestamp', 'desc'));
-      const querySnapShot = await getDocs(q);
-      console.log(querySnapShot);
-      querySnapShot.forEach((doc) => {
-        // doc.data() is never undefined for query doc snapshots
-        console.log(doc.data());
-        arrdata.push({ data: doc.data(), id: doc.id });
-      });
-      console.log(arrdata);
-      setEmails(arrdata);
-    };
-    getAllMails();
+    getAllMails().then((data) => {
+      setEmails(data);
+    });
   }, []);
 
   return (
