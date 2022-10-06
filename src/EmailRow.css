@@ -5,6 +5,7 @@
   flex-grow: 1;
   cursor: pointer;
   border-bottom: 0.5px solid #b7b9bd;
+  overflow: hidden;
 }
 
 .emailRow:hover {
@@ -19,6 +20,7 @@
   display: flex;
   gap: 25px;
   flex-grow: 1;
+  position: relative;
 }
 
 .emailRow-senderName {
@@ -50,4 +52,23 @@
   white-space: nowrap;
   flex: 0.2;
   font-size: small;
+}
+
+.emailRow-actions {
+  position: absolute;
+  right: 20px;
+  z-index: -99;
+  top: -10px;
+  display: flex;
+}
+
+.emailRow-data:hover .emailRow-actions {
+  position: absolute;
+  right: 0px;
+  display: flex;
+  z-index: 99;
+  top: -8px;
+  padding-left: 25px;
+  padding-right: 10px;
+  background-color: white;
 }

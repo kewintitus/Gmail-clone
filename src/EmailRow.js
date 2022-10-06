@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './EmailRow.css';
 import { CheckBox } from '@mui/icons-material';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
@@ -8,9 +8,26 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { selectMail } from './features/mailSlice';
 
+import StarIcon from '@mui/icons-material/Star';
+
+import ArchiveOutlinedIcon from '@mui/icons-material/ArchiveOutlined';
+import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined';
+import MarkunreadOutlinedIcon from '@mui/icons-material/MarkunreadOutlined';
+import ScheduleOutlinedIcon from '@mui/icons-material/ScheduleOutlined';
+
 const EmailRow = ({ id, emailId, sender, subject, description, time }) => {
   const history = useNavigate();
   const dispatch = useDispatch();
+  const [isStarred, setIsStarred] = useState(false);
+  const [isChecked, setIsChecked] = useState(false);
+
+  const toggleStarHandler = () => {
+    setIsStarred(!isStarred);
+  };
+
+  const toggleCheckBox = () => {
+    setIsChecked(!isChecked);
+  };
 
   const openMailHandler = () => {
     dispatch(selectMail({ id, emailId, sender, subject, description, time }));
@@ -21,10 +38,21 @@ const EmailRow = ({ id, emailId, sender, subject, description, time }) => {
     <div className="emailRow">
       <div className="emailRow-options">
         <IconButton>
-          <CheckBoxOutlineBlankIcon />
+          {!isChecked ? (
+            <CheckBoxOutlineBlankIcon onClick={toggleCheckBox} />
+          ) : (
+            <CheckBox onClick={toggleCheckBox} />
+          )}
         </IconButton>
         <IconButton>
-          <StarBorderIcon />
+          {!isStarred ? (
+            <StarBorderIcon onClick={toggleStarHandler} />
+          ) : (
+            <StarIcon
+              style={{ color: '#ffe234' }}
+              onClick={toggleStarHandler}
+            />
+          )}
         </IconButton>
       </div>
       <div className="emailRow-data" onClick={openMailHandler}>
@@ -36,6 +64,20 @@ const EmailRow = ({ id, emailId, sender, subject, description, time }) => {
           </span>
         </div>
         <div className="emailRow-time">{time}</div>
+        <div className="emailRow-actions">
+          <IconButton>
+            <ArchiveOutlinedIcon style={{ fontSize: '21px' }} />
+          </IconButton>
+          <IconButton>
+            <DeleteOutlineOutlinedIcon />
+          </IconButton>
+          <IconButton>
+            <MarkunreadOutlinedIcon />
+          </IconButton>
+          <IconButton>
+            <ScheduleOutlinedIcon />
+          </IconButton>
+        </div>
       </div>
     </div>
   );

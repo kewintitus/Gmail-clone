@@ -41,7 +41,7 @@ const data = [
   {
     id: '5',
     Icon: KeyboardArrowDownOutlinedIcon,
-    title: 'Drafts',
+    title: 'More',
     number: '',
     selected: false,
   },

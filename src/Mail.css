@@ -8,11 +8,15 @@
   display: flex;
   justify-content: space-between;
   padding: 5px;
+  margin-bottom: 15px;
 }
 
 .mail-toolsLeft {
   display: flex;
   gap: 10px;
+}
+.mailSubject {
+  margin-bottom: 15px;
 }
 
 .userImg img {
