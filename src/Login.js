@@ -2,13 +2,12 @@ import { Button } from '@mui/material';
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import GmailLogo from '../src/images/GmailLogo.jpg';
-import { login } from './features/userSlice';
+
 import { auth, provider } from './firebase';
 import { signInWithPopup, GoogleAuthProvider } from 'firebase/auth';
 import './Login.css';
 
 const Login = () => {
-  const dispatch = useDispatch;
   const signInHandler = () => {
     signInWithPopup(auth, provider)
       .then((result) => {

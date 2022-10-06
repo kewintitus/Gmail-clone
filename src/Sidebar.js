@@ -9,10 +9,10 @@ import InsertDriveFileOutlinedIcon from '@mui/icons-material/InsertDriveFileOutl
 import KeyboardArrowDownOutlinedIcon from '@mui/icons-material/KeyboardArrowDownOutlined';
 import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
 import SendIcon from '@mui/icons-material/Send';
-import { useDispatch } from 'react-redux';
-import { openSendMessage } from './features/mailSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { openSendMessage, selectMailCount } from './features/mailSlice';
 import { NavLink } from 'react-router-dom';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const data = [
   { id: '0', Icon: InboxIcon, title: 'Inbox', number: 5, selected: true },
@@ -50,18 +50,32 @@ const data = [
 const Sidebar = () => {
   const [sideBarData, setSideBarData] = useState(data);
   const dispatch = useDispatch();
+  const inboxCount = useSelector(selectMailCount);
+
+  console.log(inboxCount);
+
+  useEffect(() => {
+    setSideBarData(
+      sideBarData.map((data) => {
+        if (data.id === '0') {
+          console.log(inboxCount);
+          data.number = inboxCount;
+        }
+        console.log(data);
+        return data;
+      })
+    );
+  }, [inboxCount]);
 
   const sideBarOptionsComponent = (id) => {
     setSideBarData(
       sideBarData.map((data) => {
         if (data.id == id) {
-          console.log(id, data.id);
           data.selected = true;
         } else {
-          console.log(id, data.id);
-
           data.selected = false;
         }
+        console.log(inboxCount);
         return data;
       })
     );

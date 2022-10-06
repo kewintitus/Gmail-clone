@@ -13,6 +13,8 @@ import { db } from './firebase';
 import { doc, getDoc } from 'firebase/firestore';
 import { collection, getDocs } from 'firebase/firestore';
 import { query, orderBy, limit } from 'firebase/firestore';
+import { useDispatch } from 'react-redux';
+import { setMailCount } from './features/mailSlice';
 
 // const getData = async (docRef) => {
 //   const docSnap = await getDoc(docRef);
@@ -22,6 +24,7 @@ import { query, orderBy, limit } from 'firebase/firestore';
 const EmailList = () => {
   const [emails, setEmails] = useState([]);
   const [emailsCheck, setEmailsCheck] = useState(false);
+  const dispatch = useDispatch();
 
   const toggleEmailsCheck = () => {
     setEmailsCheck(!emailsCheck);
@@ -38,12 +41,15 @@ const EmailList = () => {
       arrdata.push({ data: doc.data(), id: doc.id });
     });
     console.log(arrdata);
+
     return arrdata;
   };
 
   useEffect(() => {
     getAllMails().then((data) => {
       setEmails(data);
+      dispatch(setMailCount(data.length));
+      console.log(data.length);
     });
   }, []);
 
