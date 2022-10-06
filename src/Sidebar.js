@@ -15,7 +15,7 @@ import { NavLink } from 'react-router-dom';
 import { useState } from 'react';
 
 const data = [
-  { id: '0', Icon: 'InboxIcon', title: 'Inbox', number: 10, selected: true },
+  { id: '0', Icon: InboxIcon, title: 'Inbox', number: 5, selected: true },
   {
     id: '1',
     Icon: StarOutlineIcon,
