@@ -1,8 +1,21 @@
 import './SidebarOptions.css';
 
-const SidebarOptions = ({ Icon, title, number, selected }) => {
+const SidebarOptions = ({
+  id,
+  Icon,
+  title,
+  number,
+  selected,
+  selectHandler,
+}) => {
+  const sidebarToggleHandler = () => {
+    selectHandler(id);
+  };
   return (
-    <div className={`sidebarOption ${selected && 'sidebarOption--active'}`}>
+    <div
+      className={`sidebarOption ${selected && 'sidebarOption--active'}`}
+      onClick={sidebarToggleHandler}
+    >
       <div>
         <Icon />
       </div>

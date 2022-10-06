@@ -9,10 +9,19 @@ import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 import SettingsIcon from '@mui/icons-material/Settings';
 import AppsIcon from '@mui/icons-material/Apps';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
-import { useSelector } from 'react-redux';
-import { selectUser } from './features/userSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { logout, selectUser } from './features/userSlice';
+import { getAuth, signOut } from 'firebase/auth';
+import { auth } from './firebase';
 const Header = () => {
   const user = useSelector(selectUser);
+  const dispatch = useDispatch();
+
+  const signOutHandler = () => {
+    signOut(auth).then(() => {
+      dispatch(logout());
+    });
+  };
 
   return (
     <div className="header">
@@ -38,7 +47,7 @@ const Header = () => {
         <IconButton>
           <AppsIcon className="options-icon" />
         </IconButton>
-        <IconButton>
+        <IconButton onClick={signOutHandler}>
           <Avatar src={user?.photoUrl} />
         </IconButton>
         {/* <AccountCircleIcon className="options-icon" /> */}

@@ -2,6 +2,7 @@ import React from 'react';
 import './EmailRow.css';
 import { CheckBox } from '@mui/icons-material';
 import StarBorderIcon from '@mui/icons-material/StarBorder';
+import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
 import { IconButton } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
@@ -20,7 +21,7 @@ const EmailRow = ({ id, emailId, sender, subject, description, time }) => {
     <div className="emailRow">
       <div className="emailRow-options">
         <IconButton>
-          <CheckBox />
+          <CheckBoxOutlineBlankIcon />
         </IconButton>
         <IconButton>
           <StarBorderIcon />
