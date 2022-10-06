@@ -21,6 +21,11 @@ import { query, orderBy, limit } from 'firebase/firestore';
 
 const EmailList = () => {
   const [emails, setEmails] = useState([]);
+  const [emailsCheck, setEmailsCheck] = useState(false);
+
+  const toggleEmailsCheck = () => {
+    setEmailsCheck(!emailsCheck);
+  };
 
   const getAllMails = async () => {
     const arrdata = [];
@@ -47,8 +52,8 @@ const EmailList = () => {
       <div className="emailList-settings">
         <div className="emailList-settingsLeft">
           <div className="emailList-checkBox">
-            <IconButton>
-              <CheckBoxOutlineBlankIcon />
+            <IconButton onClick={toggleEmailsCheck}>
+              {!emailsCheck ? <CheckBoxOutlineBlankIcon /> : <CheckBox />}
             </IconButton>
             <IconButton>
               <ArrowDropDownOutlinedIcon />
@@ -82,6 +87,7 @@ const EmailList = () => {
               subject={data.subject}
               description={data.message}
               time={new Date(data.timestamp.seconds * 1000).toUTCString()}
+              check={emailsCheck}
             />
           );
         })}
