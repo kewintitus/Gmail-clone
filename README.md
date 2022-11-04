@@ -12,11 +12,11 @@ Firebase - Google authentication
 UI -  React, Material UI.
 
 ## App Usage
-Login - using google account\
+Login - using google account
 
-##Create new post
+## Create new post
 ![Gmail-create-new-post-e](https://user-images.githubusercontent.com/96645509/199917814-b91294c4-bcf8-4ac1-9d06-98719b345abd.jpg)
 
 
-##To Logout
+## To Logout
 ![Gmail-clone-logout](https://user-images.githubusercontent.com/96645509/199916993-3e87ecdf-6bf5-4015-9095-de8e81f1dfc1.jpg)
